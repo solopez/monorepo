@@ -1,0 +1,38 @@
+<div class="row no-gutters product-list" *ngIf="items">
+  <div class="col-md-10 product-list__wrapper">
+    <ng-container *ngFor="let item of items">
+      <a [routerLink]="['/items/' + item.id]" id="product-{{item.id}}">
+        <div class="row">
+          <div class="col-md-9 d-md-inline-flex">
+            <div class="product-list__image__wrapper">
+              <img
+                class="product-list__image"
+                src="{{ item.picture }}"
+                alt="product items"
+              />
+            </div>
+            <div class="product-list__content">
+              <span class="product-list__content__price d-inline-block">{{
+                item.price.amount | currency
+              }}</span>
+              <span
+                class="product-list__content__icon"
+                *ngIf="item.free_shipping"
+                ><img src="./assets/ic_shipping.png" srcset="./assets/ic_shipping@2x.png.png" class="product-list__icon" alt="free shipping"
+              /></span>
+              <div>
+                <span class="product-list__content__title">{{
+                  item.title
+                }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 product-list__location d-md-inline-flex">
+            <span class="product-list__location__content">{{ item.city }}</span>
+          </div>
+        </div>
+        <hr class="product-list__line">
+      </a>
+    </ng-container>
+  </div>
+</div>

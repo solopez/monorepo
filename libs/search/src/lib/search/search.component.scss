@@ -1,0 +1,48 @@
+@import '../../../../../apps/meli/src/styles/_variables';
+@import '../../../../../apps/meli/src/styles/_mixins';
+
+.search {
+  background-color: $turbo;
+  padding: 1rem;
+
+  @include desktop {
+    padding: 0.5rem 0;
+  }
+
+  &__image {
+    margin-right: 1.5rem;
+    width: 50px;
+    height: 40px;
+  }
+
+  &__wrapper {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  &__icon {
+    width: 15px;
+  }
+
+}
+.products {
+  background-color: $gallery;
+
+  &__breadcrumb {
+    margin: 0 auto;
+
+    &__content {
+      font-size: 14px;
+      color: $dusty-gray;
+      margin: 1rem;
+
+      @include desktop {
+        margin: 1rem 0;
+      }
+    }
+  }
+}
+
+.input-group > input {
+  height: 2.5rem;
+}

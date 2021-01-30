@@ -1,14 +1,9 @@
 {
   "npmScope": "meli",
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -16,19 +11,22 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "accessToken": "MjhmNWYzMDEtMjg0YS00MTM5LWJkOGUtOTBiZDMyNTE4ZmVkfHJlYWQtd3JpdGU=",
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
       }
     }
   },
   "projects": {
-    "meli": {
-      "tags": []
-    },
-    "meli-e2e": {
-      "tags": [],
-      "implicitDependencies": ["meli"]
-    }
+    "meli": { "tags": [] },
+    "meli-e2e": { "tags": [], "implicitDependencies": ["meli"] },
+    "api": { "tags": [] },
+    "data": { "tags": [] },
+    "search": { "tags": [] },
+    "product-list": { "tags": [] },
+    "product-detail": { "tags": [] }
   }
 }

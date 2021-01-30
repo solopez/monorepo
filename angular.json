@@ -37,14 +37,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/meli",
+            "outputPath": "dist/meli/browser",
             "index": "apps/meli/src/index.html",
             "main": "apps/meli/src/main.ts",
             "polyfills": "apps/meli/src/polyfills.ts",
             "tsConfig": "apps/meli/tsconfig.app.json",
             "aot": true,
             "assets": ["apps/meli/src/favicon.ico", "apps/meli/src/assets"],
-            "styles": ["apps/meli/src/styles.scss"],
+            "styles": [
+              "apps/meli/src/styles.scss",
+              "apps/meli/src/styles/_variables.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -80,7 +84,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "meli:build"
+            "browserTarget": "meli:build",
+            "proxyConfig": "apps/meli/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -104,11 +109,71 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/meli"],
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "jestConfig": "apps/meli/jest.config.js",
-            "passWithNoTests": true
+            "main": "apps/meli/src/test.ts",
+            "tsConfig": "apps/meli/tsconfig.spec.json",
+            "karmaConfig": "apps/meli/karma.conf.js",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/meli/src/assets",
+                "output": "./assets/"
+              }
+            ],
+            "codeCoverage": true
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/meli/server",
+            "main": "apps/meli/server.ts",
+            "tsConfig": "apps/meli/tsconfig.server.json",
+            "externalDependencies": [
+              "@nestjs/microservices",
+              "@nestjs/microservices/microservices-module",
+              "@nestjs/websockets",
+              "@nestjs/websockets/socket-module",
+              "cache-manager"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/meli/src/environments/environment.ts",
+                  "with": "apps/meli/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": false
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "meli:build",
+            "serverTarget": "meli:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "meli:build:production",
+              "serverTarget": "meli:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "meli:build:production",
+            "serverTarget": "meli:server:production",
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }
@@ -135,6 +200,177 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/meli-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "prefix": "api",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/api"],
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data": {
+      "root": "libs/data",
+      "sourceRoot": "libs/data/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/data/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data"],
+          "options": {
+            "jestConfig": "libs/data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "search": {
+      "projectType": "library",
+      "root": "libs/search",
+      "sourceRoot": "libs/search/src",
+      "prefix": "meli",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/search/src/**/*.ts",
+              "libs/search/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/search/src/test.ts",
+            "tsConfig": "libs/search/tsconfig.spec.json",
+            "karmaConfig": "libs/search/karma.conf.js",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/meli/src/assets",
+                "output": "./assets/"
+              }
+            ],
+            "codeCoverage": true
+          }
+        }
+      }
+    },
+    "product-list": {
+      "projectType": "library",
+      "root": "libs/product-list",
+      "sourceRoot": "libs/product-list/src",
+      "prefix": "meli",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/product-list/src/**/*.ts",
+              "libs/product-list/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/product-list/src/test.ts",
+            "tsConfig": "libs/product-list/tsconfig.spec.json",
+            "karmaConfig": "libs/product-list/karma.conf.js",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/meli/src/assets",
+                "output": "./assets/"
+              }
+            ],
+            "codeCoverage": true
+          }
+        }
+      }
+    },
+    "product-detail": {
+      "projectType": "library",
+      "root": "libs/product-detail",
+      "sourceRoot": "libs/product-detail/src",
+      "prefix": "meli",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/product-detail/src/**/*.ts",
+              "libs/product-detail/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/product-detail/src/test.ts",
+            "tsConfig": "libs/product-detail/tsconfig.spec.json",
+            "karmaConfig": "libs/product-detail/karma.conf.js",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/meli/src/assets",
+                "output": "./assets/"
+              }
+            ],
+            "codeCoverage": true
           }
         }
       }

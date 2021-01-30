@@ -1,0 +1,72 @@
+@import '../../../../../apps/meli/src/styles/variables';
+@import '../../../../../apps/meli/src/styles/mixins';
+
+.product-detail {
+  @include product-container(2rem);
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 2rem;
+    margin-bottom: 0;
+  }
+
+  &__condition {
+    padding-top: 2rem;
+    font-size: 14px;
+    margin-bottom: 1rem;
+  }
+
+  &__price {
+    font-size: 46px;
+    padding-bottom: 2rem;
+
+    @include tablet {
+      font-size: 36px;
+    }
+
+    @include desktop {
+      font-size: 46px;
+    }
+  }
+
+  &__description {
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+
+    @include desktop {
+      position: absolute;
+      padding: 2rem;
+    }
+
+    &__title {
+      font-size: 28px;
+      padding-bottom: 2rem;
+      margin-bottom: 0;
+    }
+
+    &__content {
+      color: $dusty-gray;
+      font-size: 16px;
+      margin-bottom: 0;
+      max-height: 15rem;
+      overflow: hidden;
+    }
+  }
+
+  &__image {
+    max-height: 28rem;
+    max-width: 18rem;
+
+    @include desktop {
+      max-width: initial;
+    }
+  }
+
+  &__button {
+    background-color: $dodge-blue;
+    width: 100%;
+    margin-top: 1.6rem;
+  }
+}

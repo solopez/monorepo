@@ -1,0 +1,87 @@
+@import '../../../../../apps/meli/src/styles/variables';
+@import '../../../../../apps/meli/src/styles/mixins';
+
+.product-list {
+  @include product-container;
+
+  &__wrapper {
+    width: 90%;
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  &__location {
+    font-size: 12px;
+    color: $dusty-gray;
+    margin: 1rem auto;
+
+    @include desktop {
+      margin: 2.8rem 0;
+    }
+
+    &__content {
+      text-align: left;
+      padding: 1rem 1.5rem;
+  
+      @include tablet {
+        padding: 0;
+      }
+    }
+  }
+
+  &__icon {
+    width: 20px;
+  }
+
+  &__image {
+    margin: 1rem;
+    border-radius: 4px;
+    width: 180px;
+    height: 180px;
+
+    &__wrapper {
+      border-radius: 4px;
+    }
+  }
+
+  &__content {
+    color: $black;
+    padding: 1.5rem;
+
+    @include tablet {
+      padding: 0;
+      width: 100%;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &__title {
+      font-size: 18px;
+    }
+
+    &__icon {
+      vertical-align: text-bottom;
+      margin-left: 1rem;
+    }
+
+    &__price {
+      font-size: 20px;
+      padding-bottom: 2rem;
+      margin-top: 2rem;
+
+      @include tablet {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &__line {
+    color: $dusty-gray;
+    width: 96%;
+    margin: 0 auto;
+  }
+}

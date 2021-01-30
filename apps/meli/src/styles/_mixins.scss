@@ -1,0 +1,39 @@
+@mixin tablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin product-container($padding: 0) {
+  background-color: $gallery;
+
+  @include tablet {
+    height: 56rem;
+  }
+
+  @include desktop {
+    height: 65rem;
+  }
+
+  &__wrapper {
+    padding: $padding;
+    margin: 0 auto;
+    background-color: $white;
+    border-radius: 4px;
+
+    @include tablet {
+      height: 53rem;
+    }
+
+    @include desktop {
+      height: 53.2rem;
+    }
+  }
+}
+

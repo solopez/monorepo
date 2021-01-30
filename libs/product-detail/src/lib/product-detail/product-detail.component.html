@@ -1,0 +1,38 @@
+<div class="row no-gutters product-detail" *ngIf="item">
+  <div class="col-md-10 product-detail__wrapper position-relative">
+    <div class="row">
+      <div class="col-md-8 text-center text-md-left">
+        <img src="{{ item.picture }}" class="product-detail__image" alt="product picture" />
+      </div>
+      <div class="col-md-4">
+        <div class="product-detail__condition">
+          <span>{{ conditions[item.condition] }} </span>
+          <span *ngIf="item.sold_quantity"
+            >- {{ item.sold_quantity }} vendidos</span
+          >
+        </div>
+        <h1 class="product-detail__title">{{ item.title }}</h1>
+        <span class="product-detail__price">{{
+          item.price.amount | currency
+        }}</span>
+        <button
+          type="button"
+          class="btn btn-primary product-detail__button"
+          id="buy"
+        >
+          Comprar
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 product-detail__description">
+        <h2 class="product-detail__description__title">
+          Descripción del producto
+        </h2>
+        <p class="product-detail__description__content">
+          {{ item.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

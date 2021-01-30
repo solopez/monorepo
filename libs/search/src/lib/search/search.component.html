@@ -1,0 +1,34 @@
+<div [formGroup]="form" class="search">
+  <div class="row no-gutters">
+    <div class="col-md-10 search__wrapper">
+      <a [routerLink]="['/']" id="home">
+        <img src="./assets/Logo_ML.png" srcset="./assets/Logo_ML@2x.png.png" class="search__image" alt="icon" />
+      </a>
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nunca dejes de buscar"
+          aria-label="search"
+          formControlName="search"
+          aria-describedby="search"
+          (keydown.enter)="search()"
+        />
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="search"
+            ><img src="./assets/ic_Search.png" srcset="./assets/ic_Search@2x.png.png" class="search__icon" alt="search"
+          /></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="products">
+  <div class="row no-gutters">
+    <div class="col-md-10 products__breadcrumb">
+      <p class="products__breadcrumb__content">
+        Electrónica, Audio y Video > iPod > Reproductores
+      </p>
+    </div>
+  </div>
+</div>
