@@ -2,11 +2,11 @@
 
 # Meli
 
-Serve front: nx serve meli
+Serve front: npm run start | nx serve meli 
 
-Serve back: nx serve api
+Serve back: npm run nx serve api | nx serve api
 
-SSR commands: at package.json
+SSR commands: ssr's at package.json
 
 Tests: nx test lib ie. nx test search | nx test product-detail | nx test product-list
 
