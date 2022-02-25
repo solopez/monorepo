@@ -26,184 +26,8 @@
       "style": "scss"
     }
   },
-  "defaultProject": "meli",
+  "defaultProject": "gamer",
   "projects": {
-    "meli": {
-      "projectType": "application",
-      "root": "apps/meli",
-      "sourceRoot": "apps/meli/src",
-      "prefix": "meli",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/meli/browser",
-            "index": "apps/meli/src/index.html",
-            "main": "apps/meli/src/main.ts",
-            "polyfills": "apps/meli/src/polyfills.ts",
-            "tsConfig": "apps/meli/tsconfig.app.json",
-            "aot": true,
-            "assets": ["apps/meli/src/favicon.ico", "apps/meli/src/assets"],
-            "styles": [
-              "apps/meli/src/styles.scss",
-              "apps/meli/src/styles/_variables.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/meli/src/environments/environment.ts",
-                  "with": "apps/meli/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "meli:build",
-            "proxyConfig": "apps/meli/proxy.conf.json"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "meli:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "meli:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/meli/src/**/*.ts",
-              "apps/meli/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "apps/meli/src/test.ts",
-            "tsConfig": "apps/meli/tsconfig.spec.json",
-            "karmaConfig": "apps/meli/karma.conf.js",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "apps/meli/src/assets",
-                "output": "./assets/"
-              }
-            ],
-            "codeCoverage": true
-          }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/meli/server",
-            "main": "apps/meli/server.ts",
-            "tsConfig": "apps/meli/tsconfig.server.json",
-            "externalDependencies": [
-              "@nestjs/microservices",
-              "@nestjs/microservices/microservices-module",
-              "@nestjs/websockets",
-              "@nestjs/websockets/socket-module",
-              "cache-manager"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media",
-              "fileReplacements": [
-                {
-                  "replace": "apps/meli/src/environments/environment.ts",
-                  "with": "apps/meli/src/environments/environment.prod.ts"
-                }
-              ],
-              "sourceMap": false,
-              "optimization": false
-            }
-          }
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "options": {
-            "browserTarget": "meli:build",
-            "serverTarget": "meli:server"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "meli:build:production",
-              "serverTarget": "meli:server:production"
-            }
-          }
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "browserTarget": "meli:build:production",
-            "serverTarget": "meli:server:production",
-            "routes": ["/"]
-          },
-          "configurations": {
-            "production": {}
-          }
-        }
-      }
-    },
-    "meli-e2e": {
-      "root": "apps/meli-e2e",
-      "sourceRoot": "apps/meli-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/meli-e2e/cypress.json",
-            "tsConfig": "apps/meli-e2e/tsconfig.e2e.json",
-            "devServerTarget": "meli:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "meli:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/meli-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
     "api": {
       "root": "apps/api",
       "sourceRoot": "apps/api/src",
@@ -265,14 +89,6 @@
           "options": {
             "lintFilePatterns": ["libs/data/**/*.ts"]
           }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/data"],
-          "options": {
-            "jestConfig": "libs/data/jest.config.js",
-            "passWithNoTests": true
-          }
         }
       }
     },
@@ -280,7 +96,7 @@
       "projectType": "library",
       "root": "libs/search",
       "sourceRoot": "libs/search/src",
-      "prefix": "meli",
+      "prefix": "gamer",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -300,7 +116,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "apps/meli/src/assets",
+                "input": "apps/gamer/src/assets",
                 "output": "./assets/"
               }
             ],
@@ -313,7 +129,7 @@
       "projectType": "library",
       "root": "libs/product-list",
       "sourceRoot": "libs/product-list/src",
-      "prefix": "meli",
+      "prefix": "gamer",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -333,7 +149,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "apps/meli/src/assets",
+                "input": "apps/gamer/src/assets",
                 "output": "./assets/"
               }
             ],
@@ -346,7 +162,7 @@
       "projectType": "library",
       "root": "libs/product-detail",
       "sourceRoot": "libs/product-detail/src",
-      "prefix": "meli",
+      "prefix": "gamer",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -366,11 +182,175 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "apps/meli/src/assets",
+                "input": "apps/gamer/src/assets",
                 "output": "./assets/"
               }
             ],
             "codeCoverage": true
+          }
+        }
+      }
+    },
+    "gamer": {
+      "projectType": "application",
+      "root": "apps/gamer",
+      "sourceRoot": "apps/gamer/src",
+      "prefix": "gamer",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/gamer/browser",
+            "index": "apps/gamer/src/index.html",
+            "main": "apps/gamer/src/main.ts",
+            "polyfills": "apps/gamer/src/polyfills.ts",
+            "tsConfig": "apps/gamer/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/gamer/src/favicon.ico", "apps/gamer/src/assets"],
+            "styles": [
+              "apps/gamer/src/styles.scss",
+              "apps/gamer/src/styles/_variables.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/gamer/src/environments/environment.ts",
+                  "with": "apps/gamer/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gamer:build",
+            "proxyConfig": "apps/gamer/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gamer:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "gamer:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/gamer/src/**/*.ts",
+              "apps/gamer/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/gamer/src/test.ts",
+            "tsConfig": "apps/gamer/tsconfig.spec.json",
+            "karmaConfig": "apps/gamer/karma.conf.js",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/gamer/src/assets",
+                "output": "./assets/"
+              }
+            ],
+            "codeCoverage": true
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/gamer/server",
+            "main": "apps/gamer/server.ts",
+            "tsConfig": "apps/gamer/tsconfig.server.json",
+            "externalDependencies": [
+              "@nestjs/microservices",
+              "@nestjs/microservices/microservices-module",
+              "@nestjs/websockets",
+              "@nestjs/websockets/socket-module",
+              "cache-manager"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/gamer/src/environments/environment.ts",
+                  "with": "apps/gamer/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": false
+            }
+          }
+        },
+        "serve-all": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "ng serve api"
+              },
+              {
+                "command": "ng serve gamer --open"
+              }
+            ],
+            "parallel": true
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "gamer:build",
+            "serverTarget": "gamer:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gamer:build:production",
+              "serverTarget": "gamer:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "gamer:build:production",
+            "serverTarget": "gamer:server:production",
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }

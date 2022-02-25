@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
-import { SearchModule } from '@meli/search';
+import { SearchModule } from '@gamer/search';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductService } from './services/product.service';
@@ -13,7 +13,7 @@ import { ProductService } from './services/product.service';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
-    SearchModule
+    SearchModule,
   ],
   providers: [ProductService],
   bootstrap: [AppComponent],

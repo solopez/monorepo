@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Item } from '@meli/data';
-import { ProductService } from '../../../../../apps/meli/src/app/services/product.service';
+import { Item } from '@gamer/data';
+import { ProductService } from '../../../../../apps/gamer/src/app/services/product.service';
 
 @Component({
-  selector: 'meli-product-list',
+  selector: 'gamer-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })

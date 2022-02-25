@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   api: {
-    gamer: 'https://api.mercadolibre.com/'
-  }
+    gamer: 'https://api.mercadolibre.com/',
+  },
 };

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Item } from '@meli/data';
-import { ProductService } from '../../../../../apps/meli/src/app/services/product.service';
+import { Item } from '@gamer/data';
+import { ProductService } from '../../../../../apps/gamer/src/app/services/product.service';
 import { CONDITIONS } from './condition.enum';
 
 @Component({
-  selector: 'meli-product-detail',
+  selector: 'gamer-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss']
 })

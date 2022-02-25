@@ -17,10 +17,10 @@ async function bootstrap() {
   app.setGlobalPrefix(globalPrefix);
 
   const config = new DocumentBuilder()
-    .setTitle('Meli API')
+    .setTitle('gamer API')
     .setDescription('')
     .setVersion('1.0')
-    .addTag('meli')
+    .addTag('gamer')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

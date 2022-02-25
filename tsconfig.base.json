@@ -15,11 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@meli/data": ["libs/data/src/index.ts"],
-      "@meli/ui": ["libs/ui/src/index.ts"],
-      "@meli/search": ["libs/search/src/index.ts"],
-      "@meli/product-list": ["libs/product-list/src/index.ts"],
-      "@meli/product-detail": ["libs/product-detail/src/index.ts"]
+      "@gamer/data": ["libs/data/src/index.ts"],
+      "@gamer/ui": ["libs/ui/src/index.ts"],
+      "@gamer/search": ["libs/search/src/index.ts"],
+      "@gamer/product-list": ["libs/product-list/src/index.ts"],
+      "@gamer/product-detail": ["libs/product-detail/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,4 +1,4 @@
-import { ItemDetail, Items } from '@meli/data';
+import { ItemDetail, Items } from '@gamer/data';
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ProductService } from './product.service';
 

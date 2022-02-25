@@ -2,9 +2,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: 'items/:id', loadChildren: () => import("@meli/product-detail").then(m => m.ProductDetailModule)},
-  { path: 'items', loadChildren: () => import("@meli/product-list").then(m => m.ProductListModule)},
-  { path: '**', redirectTo: ''}
+  {
+    path: 'items/:id',
+    loadChildren: () =>
+      import('@gamer/product-detail').then((m) => m.ProductDetailModule),
+  },
+  {
+    path: 'items',
+    loadChildren: () =>
+      import('@gamer/product-list').then((m) => m.ProductListModule),
+  },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

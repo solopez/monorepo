@@ -1,4 +1,4 @@
-import { ItemDetail, Items } from '@meli/data';
+import { ItemDetail, Items } from '@gamer/data';
 import { HttpService, Injectable } from '@nestjs/common';
 import { forkJoin } from 'rxjs';
 import { environment } from '../environments/environment';
@@ -10,7 +10,7 @@ export class ProductService {
 
   async getProducts(query): Promise<Items> {
     let response = await this.httpService
-      .get(`${environment.api.meli}/sites/MLA/search?q=${query}&limit=${this.limit}`)
+      .get(`${environment.api.gamer}/sites/MLA/search?q=${query}&limit=${this.limit}`)
       .toPromise();
     let items = response.data.results;
     let categories = [];
@@ -46,9 +46,9 @@ export class ProductService {
 
   async getProduct(id): Promise<ItemDetail> {
     const response = await forkJoin({
-      content: this.httpService.get(`${environment.api.meli}/items/${id}`),
+      content: this.httpService.get(`${environment.api.gamer}/items/${id}`),
       description: this.httpService.get(
-        `${environment.api.meli}/items/${id}/description`
+        `${environment.api.gamer}/items/${id}/description`
       ),
     }).toPromise();
     const content = response.content.data;

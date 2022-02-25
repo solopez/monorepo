@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'meli-search',
+  selector: 'gamer-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
