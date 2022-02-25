@@ -1,6 +1,7 @@
 body {
   margin: 0;
-
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(146,177,223,1) 0%, rgba(198,255,0,1) 40%);
   a,
   a:hover {
     text-decoration: none;

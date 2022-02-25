@@ -16,10 +16,10 @@
                 item.price.amount | currency
               }}</span>
               <span
-                class="product-list__content__icon"
-                *ngIf="item.free_shipping"
-                ><img src="./assets/ic_shipping.png" srcset="./assets/ic_shipping@2x.png.png" class="product-list__icon" alt="free shipping"
-              /></span>
+                class="product-list__content__icon">
+                <i class="fa-solid fa-truck-fast"></i>
+                <i class="fa-solid fa-cart-plus"></i>
+              </span>
               <div>
                 <span class="product-list__content__title">{{
                   item.title

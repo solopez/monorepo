@@ -1,18 +1,32 @@
 @import '../../../../../apps/gamer/src/styles/_variables';
 @import '../../../../../apps/gamer/src/styles/_mixins';
+@import url('https://fonts.googleapis.com/css?family=Monoton');
 
 .search {
-  background-color: $turbo;
   padding: 1rem;
 
   @include desktop {
     padding: 0.5rem 0;
   }
 
+  &__title {
+    font-family: 'Monoton', Helvetica, sans-serif;
+    text-align: center;
+    font-size: 15vw;
+    text-transform: uppercase;
+
+    @media (min-width: 700px) {
+      font-size: 9vw;
+    }
+
+    @media (min-width: 1400px) {
+      font-size: 150px;
+    }
+  }
+
   &__image {
     margin-right: 1.5rem;
-    width: 50px;
-    height: 40px;
+    width: 4rem;
   }
 
   &__wrapper {
@@ -21,13 +35,11 @@
   }
 
   &__icon {
-    width: 15px;
+    font-size: 70px;
+    margin-right: 15px;
   }
-
 }
 .products {
-  background-color: $gallery;
-
   &__breadcrumb {
     margin: 0 auto;
 
@@ -44,5 +56,5 @@
 }
 
 .input-group > input {
-  height: 2.5rem;
+  height: 4rem;
 }

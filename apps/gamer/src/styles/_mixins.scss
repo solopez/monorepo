@@ -11,8 +11,6 @@
 }
 
 @mixin product-container($padding: 0) {
-  background-color: $gallery;
-
   @include tablet {
     height: 56rem;
   }
