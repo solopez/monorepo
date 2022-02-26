@@ -2,13 +2,15 @@
   "name": "gamer",
   "version": "1.0.0",
   "license": "MIT",
+  "engines": {
+    "node" : "14.18.1"
+  },
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
-    "start": "ng serve",
+    "start": "node dist/apps/api/main",
     "serve-all": "ng run gamer:serve-all",
-    "build": "ng build",
     "test": "nx run-many --all --target=test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
@@ -28,11 +30,10 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "dev:ssr": "ng run gamer:serve-ssr",
-    "serve:ssr": "node dist/server/main.js",
+    "serve:ssr": "node dist/apps/server/main.js",
     "build:ssr": "ng build --prod && ng run gamer:server:production",
     "prerender": "ng run gamer:prerender",
-    "prebuild:ssr": "ngcc",
-    "heroku-postbuild": "ng build --prod api"
+    "prebuild:ssr": "ngcc"
   },
   "private": true,
   "dependencies": {
@@ -49,6 +50,7 @@
     "@nestjs/core": "^7.0.0",
     "@nestjs/ng-universal": "^4.2.0",
     "@nestjs/platform-express": "^7.0.0",
+    "@nestjs/serve-static": "^2.2.2",
     "@nestjs/swagger": "^4.7.12",
     "@nguniversal/express-engine": "^11.2.1",
     "@nrwl/angular": "11.2.0",

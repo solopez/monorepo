@@ -7,7 +7,7 @@ import { AppServerModule } from '../apps/gamer/src/main.server';
   imports: [
     AngularUniversalModule.forRoot({
       bootstrap: AppServerModule,
-      viewsPath: join(process.cwd(), 'dist/browser')
+      viewsPath: join(process.cwd(), 'dist/apps/gamer-app')
     })
   ]
 })
