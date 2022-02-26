@@ -2,6 +2,9 @@
 
 # Angular & NestJS web app with NX
 
+## Demo
+https://gamer-app-api.herokuapp.com/
+
 ## Local serving
 npm run serve-all (will serve api + web app both)
 
