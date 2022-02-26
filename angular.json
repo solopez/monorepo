@@ -222,7 +222,6 @@
                   "with": "apps/gamer/src/environments/environment.prod.ts"
                 }
               ],
-              "baseHref": "/gamer-app/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
