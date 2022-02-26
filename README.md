@@ -24,7 +24,7 @@ nx test search
 
 nx test api
 
-## Server Side Rendering - Angular Universal
+## Angular Universal - Server Side Rendering
 npm run build:ssr
 
 npm run prerender
