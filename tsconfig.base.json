@@ -16,7 +16,6 @@
     "baseUrl": ".",
     "paths": {
       "@gamer/data": ["libs/data/src/index.ts"],
-      "@gamer/ui": ["libs/ui/src/index.ts"],
       "@gamer/search": ["libs/search/src/index.ts"],
       "@gamer/product-list": ["libs/product-list/src/index.ts"],
       "@gamer/product-detail": ["libs/product-detail/src/index.ts"]

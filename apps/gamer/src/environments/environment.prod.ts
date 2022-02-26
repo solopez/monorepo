@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   api: {
-    gamer: 'https://api.github.com/'
+    gamer: 'https://api-pi-seven.vercel.app'
   },
 };

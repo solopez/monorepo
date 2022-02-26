@@ -38,7 +38,7 @@
           "builder": "@nrwl/node:build",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/api",
+            "outputPath": "dist/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
             "assets": ["apps/api/src/assets"]
@@ -200,7 +200,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/gamer/browser",
+            "outputPath": "dist/browser",
             "index": "apps/gamer/src/index.html",
             "main": "apps/gamer/src/main.ts",
             "polyfills": "apps/gamer/src/polyfills.ts",
@@ -222,6 +222,7 @@
                   "with": "apps/gamer/src/environments/environment.prod.ts"
                 }
               ],
+              "baseHref": "/gamer-app/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -290,7 +291,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/gamer/server",
+            "outputPath": "dist/server",
             "main": "apps/gamer/server.ts",
             "tsConfig": "apps/gamer/tsconfig.server.json",
             "externalDependencies": [

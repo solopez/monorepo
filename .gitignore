@@ -41,3 +41,4 @@ Thumbs.db
 # Test files
 apps/**/coverage
 libs/**/coverage
+.vercel
