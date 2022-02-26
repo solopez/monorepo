@@ -7,7 +7,7 @@
             <div class="product-list__image__wrapper">
               <img
                 class="product-list__image"
-                src="{{ item.picture }}"
+                src="{{ item.thumbnail }}"
                 alt="product items"
               />
             </div>
@@ -34,5 +34,10 @@
         <hr class="product-list__line">
       </a>
     </ng-container>
+  </div>
+</div>
+<div class="container" *ngIf="!items?.length">
+  <div class="text-center">
+    <h3>Try another one!</h3>
   </div>
 </div>

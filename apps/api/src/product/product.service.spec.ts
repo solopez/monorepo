@@ -10,7 +10,6 @@ describe('ProductService', () => {
   let service: ProductService;
   let getProductsSpy;
   const items = {
-    categories: [],
     items: [
       {
         id: 'sku_001',

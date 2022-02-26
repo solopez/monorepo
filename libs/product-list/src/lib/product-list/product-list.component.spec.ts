@@ -16,7 +16,7 @@ class ProductServiceStub {
   getProducts() {
     const item = new Item();
     item.price.amount = 34322;
-    return of({ items: [item], categories: [] });
+    return of({ items: [item] });
   }
 }
 describe('ProductListComponent', () => {

@@ -11,26 +11,10 @@
 }
 
 @mixin product-container($padding: 0) {
-  @include tablet {
-    height: 56rem;
-  }
-
-  @include desktop {
-    height: 65rem;
-  }
-
   &__wrapper {
     padding: $padding;
     margin: 0 auto;
     background-color: $white;
     border-radius: 4px;
-
-    @include tablet {
-      height: 53rem;
-    }
-
-    @include desktop {
-      height: 53.2rem;
-    }
   }
 }

@@ -17,7 +17,7 @@ class ProductServiceStub {
     let item = new Item();
     item.price = {amount: 3323, currency: 'ARS'};
 
-    return of({ item: item, categories: [] });
+    return of({ item: item });
   }
 }
 

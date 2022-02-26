@@ -3,7 +3,11 @@
 
 .product-detail {
   @include product-container(2rem);
-
+  &__wrapper {
+    @include tablet {
+      min-height: 23rem;
+    }
+  }
   &__title {
     font-size: 24px;
     font-weight: bold;
@@ -36,8 +40,7 @@
     padding: 1rem;
 
     @include desktop {
-      position: absolute;
-      padding: 2rem;
+      padding: 1.5rem;
     }
 
     &__title {
@@ -84,5 +87,12 @@
     &:not(:disabled):not(.disabled):active {
       background-color: darken($electric-lime, 10%);
     }
+  }
+}
+
+.error-container {
+  &__alert {
+    padding: 2rem;
+    margin: 0 auto;
   }
 }

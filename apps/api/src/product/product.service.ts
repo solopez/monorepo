@@ -1,70 +1,25 @@
-import { ItemDetail, Items } from '@gamer/data';
+import { Item, ItemDetail, Items } from '@gamer/data';
 import { HttpService, Injectable } from '@nestjs/common';
-import { forkJoin } from 'rxjs';
-import { environment } from '../environments/environment';
+import { GAMES } from './games.constant';
 
 @Injectable()
 export class ProductService {
-  limit = 4;
+  games: Items = GAMES;
   constructor(private httpService: HttpService) {}
 
   async getProducts(query): Promise<Items> {
-    let response = await this.httpService
-      .get(`${environment.api.gamer}/sites/MLA/search?q=${query}&limit=${this.limit}`)
-      .toPromise();
-    let items = response.data.results;
-    let categories = [];
-    const itemValues = items.map(
-      (
-        { id, title, thumbnail, condition, category_id, shipping, currency_id, address },
-        i
-      ) => {
-        categories.push(category_id);
-        const picture = thumbnail;
-        const free_shipping = shipping.free_shipping;
-        const city = address.state_name;
-        const price = { currency: currency_id, amount: items[i].price };
-        const response = {
-          id,
-          title,
-          condition,
-          picture,
-          free_shipping,
-          city,
-          price,
-        };
-        return response;
-      }
+    const filteredGames = this.games.items.filter((item) =>
+      item.title.toLowerCase().includes(query.toLowerCase())
     );
-
-    items = {
-      items: itemValues,
-      categories: categories,
-    };
-    return items;
+    return { items: filteredGames };
   }
 
   async getProduct(id): Promise<ItemDetail> {
-    const response = await forkJoin({
-      content: this.httpService.get(`${environment.api.gamer}/items/${id}`),
-      description: this.httpService.get(
-        `${environment.api.gamer}/items/${id}/description`
-      ),
-    }).toPromise();
-    const content = response.content.data;
-    const description = response.description.data;
-    const detail = {
-      item: {
-        id: content.id,
-        title: content.title,
-        condition: content.condition,
-        picture: content.pictures[0].url,
-        free_shipping: content.shipping.free_shipping,
-        price: { currency: content.currency_id, amount: content.price },
-        sold_quantity: content.sold_quantity,
-        description: description.plain_text,
-      },
-    };
-    return detail;
+    const game = this.games.items.find((item) => item.id == id);
+    return { item: game };
+  }
+
+  getAmount(max: number, min: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 }
