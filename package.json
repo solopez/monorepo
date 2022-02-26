@@ -31,7 +31,8 @@
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run gamer:server:production",
     "prerender": "ng run gamer:prerender",
-    "prebuild:ssr": "ngcc"
+    "prebuild:ssr": "ngcc",
+    "heroku-postbuild": "ng build --prod api"
   },
   "private": true,
   "dependencies": {
@@ -99,12 +100,12 @@
     "eslint-config-prettier": "6.0.0",
     "eslint-plugin-cypress": "^2.10.3",
     "jasmine-core": "^3.6.0",
+    "jest": "26.2.2",
+    "jest-preset-angular": "8.3.2",
     "karma": "^6.3.16",
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^2.2.0",
     "karma-spec-reporter": "^0.0.32",
-    "jest": "26.2.2",
-    "jest-preset-angular": "8.3.2",
     "prettier": "2.2.1",
     "ts-jest": "26.4.0",
     "ts-node": "~9.1.1",
