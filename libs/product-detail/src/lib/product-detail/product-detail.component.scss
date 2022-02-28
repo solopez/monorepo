@@ -68,25 +68,7 @@
   }
 
   &__button {
-    width: 100%;
-    margin-top: 1.6rem;
-    border: 0;
-    height: 3rem;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(
-      90deg,
-      rgba(2, 0, 36, 1) 0%,
-      rgba(146, 202, 223, 1) 0%,
-      rgba(177, 255, 0, 1) 54%
-    );
-    font-weight: bold;
-    font-size: 20px;
-
-    &:hover,
-    &:not(:disabled):not(.disabled).active,
-    &:not(:disabled):not(.disabled):active {
-      background-color: darken($electric-lime, 10%);
-    }
+    @include button();
   }
 }
 

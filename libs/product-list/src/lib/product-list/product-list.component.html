@@ -1,8 +1,8 @@
 <div class="row no-gutters product-list" *ngIf="items">
   <div class="col-md-10 product-list__wrapper">
     <ng-container *ngFor="let item of items">
-      <a [routerLink]="['/items/' + item.id]" id="product-{{item.id}}">
-        <div class="row">
+      <a [routerLink]="['/items/' + item.id]" id="product-{{ item.id }}">
+        <div class="row no-gutters product-list__wrapper__item">
           <div class="col-md-9 d-md-inline-flex">
             <div class="product-list__image__wrapper">
               <img
@@ -15,8 +15,7 @@
               <span class="product-list__content__price d-inline-block">{{
                 item.price.amount | currency
               }}</span>
-              <span
-                class="product-list__content__icon">
+              <span class="product-list__content__icon">
                 <i class="fa-solid fa-truck-fast"></i>
                 <i class="fa-solid fa-cart-plus"></i>
               </span>
@@ -27,11 +26,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 product-list__location d-md-inline-flex">
-            <span class="product-list__location__content">{{ item.city }}</span>
-          </div>
         </div>
-        <hr class="product-list__line">
+        <hr class="product-list__line" />
       </a>
     </ng-container>
   </div>

@@ -31,7 +31,7 @@ export class ProductListComponent implements OnInit {
       (data) => {
         this.items = data.items;
       },
-      (error) => {
+      () => {
         this.router.navigate(['']);
       }
     );

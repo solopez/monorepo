@@ -47,33 +47,26 @@ function ProductListComponent_div_0_ng_container_2_Template(rf, ctx) { if (rf & 
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "span", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](19, "hr", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "hr", 16);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
 } if (rf & 2) {
     const item_r3 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("id", "product-", item_r3.id, "");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](8, _c0, "/items/" + item_r3.id));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](7, _c0, "/items/" + item_r3.id));
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("src", item_r3.thumbnail, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](9, 6, item_r3.price.amount));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](9, 5, item_r3.price.amount));
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r3.title);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r3.city);
 } }
 function ProductListComponent_div_0_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductListComponent_div_0_ng_container_2_Template, 20, 10, "ng-container", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductListComponent_div_0_ng_container_2_Template, 17, 9, "ng-container", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -82,8 +75,8 @@ function ProductListComponent_div_0_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r0.items);
 } }
 function ProductListComponent_div_1_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 19);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 18);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Try another one!");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -109,20 +102,20 @@ class ProductListComponent {
     getProducts(query) {
         this.productService.getProducts(query).subscribe((data) => {
             this.items = data.items;
-        }, (error) => {
+        }, () => {
             this.router.navigate(['']);
         });
     }
 }
 ProductListComponent.ɵfac = function ProductListComponent_Factory(t) { return new (t || ProductListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_apps_gamer_src_app_services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"])); };
-ProductListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProductListComponent, selectors: [["gamer-product-list"]], decls: 2, vars: 2, consts: [["class", "row no-gutters product-list", 4, "ngIf"], ["class", "container", 4, "ngIf"], [1, "row", "no-gutters", "product-list"], [1, "col-md-10", "product-list__wrapper"], [4, "ngFor", "ngForOf"], [3, "routerLink", "id"], [1, "row"], [1, "col-md-9", "d-md-inline-flex"], [1, "product-list__image__wrapper"], ["alt", "product items", 1, "product-list__image", 3, "src"], [1, "product-list__content"], [1, "product-list__content__price", "d-inline-block"], [1, "product-list__content__icon"], [1, "fa-solid", "fa-truck-fast"], [1, "fa-solid", "fa-cart-plus"], [1, "product-list__content__title"], [1, "col-md-3", "product-list__location", "d-md-inline-flex"], [1, "product-list__location__content"], [1, "product-list__line"], [1, "container"], [1, "text-center"]], template: function ProductListComponent_Template(rf, ctx) { if (rf & 1) {
+ProductListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProductListComponent, selectors: [["gamer-product-list"]], decls: 2, vars: 2, consts: [["class", "row no-gutters product-list", 4, "ngIf"], ["class", "container", 4, "ngIf"], [1, "row", "no-gutters", "product-list"], [1, "col-md-10", "product-list__wrapper"], [4, "ngFor", "ngForOf"], [3, "routerLink", "id"], [1, "row", "no-gutters", "product-list__wrapper__item"], [1, "col-md-9", "d-md-inline-flex"], [1, "product-list__image__wrapper"], ["alt", "product items", 1, "product-list__image", 3, "src"], [1, "product-list__content"], [1, "product-list__content__price", "d-inline-block"], [1, "product-list__content__icon"], [1, "fa-solid", "fa-truck-fast"], [1, "fa-solid", "fa-cart-plus"], [1, "product-list__content__title"], [1, "product-list__line"], [1, "container"], [1, "text-center"]], template: function ProductListComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ProductListComponent_div_0_Template, 3, 1, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductListComponent_div_1_Template, 4, 0, "div", 1);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.items);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !(ctx.items == null ? null : ctx.items.length));
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLinkWithHref"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["CurrencyPipe"]], styles: [".product-list__wrapper[_ngcontent-%COMP%] {\n  padding: 0;\n  margin: 0 auto;\n  background-color: #ffffff;\n  border-radius: 4px;\n}\n.product-list__wrapper[_ngcontent-%COMP%] {\n  width: 90%;\n}\n@media only screen and (min-width: 768px) {\n  .product-list__wrapper[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n}\n.product-list__location[_ngcontent-%COMP%] {\n  font-size: 12px;\n  color: #999999;\n  margin: 1rem auto;\n}\n@media only screen and (min-width: 992px) {\n  .product-list__location[_ngcontent-%COMP%] {\n    margin: 2.8rem 0;\n  }\n}\n.product-list__location__content[_ngcontent-%COMP%] {\n  text-align: left;\n  padding: 1rem 1.5rem;\n}\n@media only screen and (min-width: 768px) {\n  .product-list__location__content[_ngcontent-%COMP%] {\n    padding: 0;\n  }\n}\n.product-list__icon[_ngcontent-%COMP%] {\n  width: 20px;\n}\n.product-list__image[_ngcontent-%COMP%] {\n  margin: 1rem;\n  border-radius: 4px;\n  width: 250px;\n}\n.product-list__image__wrapper[_ngcontent-%COMP%] {\n  border-radius: 4px;\n}\n.product-list__content[_ngcontent-%COMP%] {\n  color: #000000;\n  padding: 1.5rem;\n}\n@media only screen and (min-width: 768px) {\n  .product-list__content[_ngcontent-%COMP%] {\n    padding: 0;\n    width: 100%;\n  }\n}\n.product-list__content[_ngcontent-%COMP%]:hover {\n  text-decoration: none;\n}\n.product-list__content__title[_ngcontent-%COMP%] {\n  font-size: 18px;\n}\n.product-list__content__icon[_ngcontent-%COMP%] {\n  vertical-align: text-bottom;\n  margin-left: 1rem;\n  color: #c6ff00;\n  font-size: 20px;\n  vertical-align: inherit;\n}\n.product-list__content__price[_ngcontent-%COMP%] {\n  font-size: 20px;\n  padding-bottom: 2rem;\n  margin-top: 2rem;\n}\n@media only screen and (min-width: 768px) {\n  .product-list__content__price[_ngcontent-%COMP%] {\n    font-size: 24px;\n  }\n}\n.product-list__line[_ngcontent-%COMP%] {\n  color: #999999;\n  width: 96%;\n  margin: 0 auto;\n}"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLinkWithHref"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["CurrencyPipe"]], styles: [".product-list__wrapper[_ngcontent-%COMP%] {\n  padding: 0;\n  margin: 0 auto;\n  background-color: white;\n  border-radius: 4px;\n}\n.product-list__wrapper[_ngcontent-%COMP%] {\n  width: 90%;\n}\n.product-list__wrapper__item[_ngcontent-%COMP%]:hover {\n  background: #a80077;\n  background: linear-gradient(to right, #66ff00, #a80077);\n  box-shadow: 1px 1px 30px white;\n  border-radius: 4px;\n}\n@media only screen and (min-width: 768px) {\n  .product-list__wrapper[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n}\n.product-list__action[_ngcontent-%COMP%] {\n  font-size: 12px;\n  color: #999999;\n  margin: 1rem auto;\n}\n@media only screen and (min-width: 992px) {\n  .product-list__action[_ngcontent-%COMP%] {\n    margin: 2.8rem 0;\n  }\n}\n.product-list__action__content[_ngcontent-%COMP%] {\n  text-align: left;\n  padding: 1rem 1.5rem;\n}\n@media only screen and (min-width: 768px) {\n  .product-list__action__content[_ngcontent-%COMP%] {\n    padding: 0;\n  }\n}\n.product-list__action__button[_ngcontent-%COMP%] {\n  width: 100%;\n  margin-top: 1.6rem;\n  border: 0;\n  height: 3rem;\n  background: #b1ff00;\n  background: linear-gradient(90deg, #020024 0%, #92cadf 0%, #b1ff00 54%);\n  font-weight: bold;\n  font-size: 20px;\n}\n.product-list__action__button[_ngcontent-%COMP%]:hover, .product-list__action__button[_ngcontent-%COMP%]:not(:disabled):not(.disabled).active, .product-list__action__button[_ngcontent-%COMP%]:not(:disabled):not(.disabled):active {\n  background: linear-gradient(90deg, black 0%, #6bb7d3 0%, #8ecc00 54%);\n}\n.product-list__icon[_ngcontent-%COMP%] {\n  width: 20px;\n}\n.product-list__image[_ngcontent-%COMP%] {\n  margin: 1rem;\n  border-radius: 4px;\n  width: 250px;\n}\n.product-list__image__wrapper[_ngcontent-%COMP%] {\n  border-radius: 4px;\n}\n.product-list__content[_ngcontent-%COMP%] {\n  color: black;\n  padding: 1.5rem;\n}\n@media only screen and (min-width: 768px) {\n  .product-list__content[_ngcontent-%COMP%] {\n    padding: 0;\n    width: 100%;\n  }\n}\n.product-list__content[_ngcontent-%COMP%]:hover {\n  text-decoration: none;\n}\n.product-list__content__title[_ngcontent-%COMP%] {\n  font-size: 18px;\n}\n.product-list__content__icon[_ngcontent-%COMP%] {\n  vertical-align: text-bottom;\n  margin-left: 1rem;\n  color: #c6ff00;\n  font-size: 20px;\n  vertical-align: inherit;\n}\n.product-list__content__price[_ngcontent-%COMP%] {\n  font-size: 20px;\n  padding-bottom: 2rem;\n  margin-top: 2rem;\n}\n@media only screen and (min-width: 768px) {\n  .product-list__content__price[_ngcontent-%COMP%] {\n    font-size: 24px;\n  }\n}\n.product-list__line[_ngcontent-%COMP%] {\n  color: #999999;\n  width: 96%;\n  margin: 0 auto;\n}"] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ProductListComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{

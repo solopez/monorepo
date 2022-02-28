@@ -1,13 +1,22 @@
 <div [formGroup]="form" class="search">
   <h1 class="search__title py-5 my-5">Play!</h1>
+  <div class="search__actions">
+    <i
+      class="fa-brands fa-d-and-d search__icon"
+      title="Home"
+      [routerLink]="['/']"
+      id="home"
+      aria-label="home"
+    ></i>
+    <gamer-cart-summary></gamer-cart-summary>
+  </div>
   <div class="row no-gutters">
     <div class="mb-4 col-md-10 search__wrapper">
-      <i class="fa-brands fa-d-and-d search__icon" [routerLink]="['/']" id="home" aria-label="home"></i>
       <div class="input-group">
         <input
           type="text"
           class="form-control"
-          placeholder="Buy a game"
+          placeholder="Enter a game"
           aria-label="search"
           formControlName="search"
           aria-describedby="search"
@@ -17,4 +26,3 @@
     </div>
   </div>
 </div>
-

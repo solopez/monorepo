@@ -1,10 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
 import { SearchModule } from '@gamer/search';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CartService } from './services/cart.service';
 import { ProductService } from './services/product.service';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { ProductService } from './services/product.service';
     HttpClientModule,
     SearchModule,
   ],
-  providers: [ProductService],
+  providers: [ProductService, CartService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

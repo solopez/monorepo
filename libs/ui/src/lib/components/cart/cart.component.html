@@ -1,0 +1,4 @@
+<div class="cart" (click)="handleToggle()">
+  <i class="fa-solid fa-cart-plus cart__icon"></i>
+  <span *ngIf="inCart" class="cart__items">{{ inCart.length }}</span>
+</div>

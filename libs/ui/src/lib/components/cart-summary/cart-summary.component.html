@@ -1,0 +1,33 @@
+<gamer-cart [inCart]="inCart" (toggle)="handleToggle()"></gamer-cart>
+<div class="cart__details" *ngIf="toggleCart">
+  <i
+    class="fa-solid fa-xmark fa-2xl cart__details__icon"
+    (click)="toggleCart = !toggleCart"
+  ></i>
+  <h3>Cart</h3>
+  <div class="py-2" *ngFor="let item of inCart">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="mr-2">{{ item.title }} </span>
+      </div>
+      <div class="col-md-1">
+        <span class="mr-2">{{ item.quantity }} </span>
+      </div>
+      <div class="col-md-3">
+        <span class="mr-2">{{ item.price.calculatedPrice | currency }} </span>
+      </div>
+      <div class="col-md-4 cart__details__actions">
+        <i
+          (click)="add(item)"
+          class="fa-solid fa-circle-plus fa-xl mx-2"
+          role="button"
+        ></i>
+        <i
+          (click)="remove(item)"
+          class="fa-solid fa-circle-minus fa-xl mx-2"
+          role="button"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>
