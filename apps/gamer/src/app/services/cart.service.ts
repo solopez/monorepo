@@ -11,10 +11,8 @@ export class CartService {
 
   add(item) {
     if (this.isItemInCart(item)) {
-      let index = this.itemsInCart.map((el) => el.id).indexOf(item.id);
       item.quantity = ++item.quantity;
-      console.log(item.price, item.quantity);
-      item.price.calculatedPrice = item.price.amount * item.quantity;
+      item.price.calculatedPrice = this.getProductSubtotalPrice(item.price.amount, item.quantity);
     } else {
       item.quantity = 1;
       item.price.calculatedPrice = item.price.amount;
@@ -26,11 +24,15 @@ export class CartService {
   remove(item: Item) {
     const index = this.itemsInCart.map((el) => el.id).indexOf(item.id);
     this.itemsInCart[index].quantity = --item.quantity;
-    this.itemsInCart[index].price.calculatedPrice = item.price.amount * item.quantity;
+    this.itemsInCart[index].price.calculatedPrice = this.getProductSubtotalPrice(item.price.amount, item.quantity);
     if (!this.itemsInCart[index].quantity) {
       this.itemsInCart.splice(index, 1);
     }
     this.itemsChanged.next(this.itemsInCart);
+  }
+
+  getProductSubtotalPrice(amount: number, quantity: number) {
+    return amount * quantity;
   }
 
   isItemInCart(item) {

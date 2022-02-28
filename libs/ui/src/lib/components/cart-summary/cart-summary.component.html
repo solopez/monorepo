@@ -5,7 +5,8 @@
     (click)="toggleCart = !toggleCart"
   ></i>
   <h3>Cart</h3>
-  <div class="py-2" *ngFor="let item of inCart">
+  <h5 *ngIf="!inCart?.length" class="py-2 mt-4">Empty!</h5>
+  <div class="py-2 mt-4" *ngFor="let item of inCart">
     <div class="row">
       <div class="col-md-4">
         <span class="mr-2">{{ item.title }} </span>
