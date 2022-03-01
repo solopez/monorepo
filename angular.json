@@ -205,14 +205,19 @@
             "main": "apps/gamer/src/main.ts",
             "polyfills": "apps/gamer/src/polyfills.ts",
             "tsConfig": "apps/gamer/tsconfig.app.json",
-            "aot": true,
             "assets": ["apps/gamer/src/favicon.ico", "apps/gamer/src/assets"],
             "styles": [
               "apps/gamer/src/styles.scss",
               "apps/gamer/src/styles/_variables.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -242,7 +247,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -299,7 +305,9 @@
               "@nestjs/websockets",
               "@nestjs/websockets/socket-module",
               "cache-manager"
-            ]
+            ],
+            "sourceMap": true,
+            "optimization": false
           },
           "configurations": {
             "production": {
@@ -310,10 +318,10 @@
                   "with": "apps/gamer/src/environments/environment.prod.ts"
                 }
               ],
-              "sourceMap": false,
-              "optimization": false
+              "sourceMap": false
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve-all": {
           "builder": "@nrwl/workspace:run-commands",
@@ -372,6 +380,31 @@
           "outputs": ["coverage/libs/ui"],
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "services": {
+      "projectType": "library",
+      "root": "libs/services",
+      "sourceRoot": "libs/services/src",
+      "prefix": "gamer",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/services/src/**/*.ts",
+              "libs/services/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/services"],
+          "options": {
+            "jestConfig": "libs/services/jest.config.js",
             "passWithNoTests": true
           }
         }

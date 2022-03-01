@@ -1,9 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from 'apps/gamer/src/app/services/product.service';
+import { ProductService } from '@gamer/services';
 import { of } from 'rxjs';
-import { Item, ItemDetail } from '@gamer/data';
+import { Item } from '@gamer/data';
 import { ProductDetailComponent } from './product-detail.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -14,7 +14,7 @@ class ActivatedRouteStub {
 
 class ProductServiceStub {
   getProduct() {
-    let item = new Item();
+    const item = new Item();
     item.price = {amount: 3323, currency: 'ARS'};
 
     return of({ item: item });

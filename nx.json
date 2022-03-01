@@ -27,6 +27,7 @@
     "product-list": { "tags": [] },
     "product-detail": { "tags": [] },
     "gamer": { "tags": [] },
-    "ui": { "tags": [] }
+    "ui": { "tags": [] },
+    "services": { "tags": [] }
   }
 }

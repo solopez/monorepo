@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CartService } from 'apps/gamer/src/app/services/cart.service';
+import { CartService } from '@gamer/services';
 import { Subscription } from 'rxjs';
 
 @Component({

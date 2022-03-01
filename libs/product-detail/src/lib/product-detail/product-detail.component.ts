@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Item } from '@gamer/data';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { CartService } from '../../../../../apps/gamer/src/app/services/cart.service';
-import { ProductService } from '../../../../../apps/gamer/src/app/services/product.service';
+import { ProductService, CartService } from '@gamer/services';
 import { CONDITIONS } from './condition.enum';
 
 @UntilDestroy()

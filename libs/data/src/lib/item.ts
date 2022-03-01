@@ -4,7 +4,7 @@ export class Item {
   id:  number;
   title: string;
   price: Price;
-  quantity: number;
+  quantity?: number;
   thumbnail?: string;
   condition?: string;
   free_shipping?: boolean;

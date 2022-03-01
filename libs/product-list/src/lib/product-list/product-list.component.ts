@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '@gamer/data';
-import { ProductService } from '../../../../../apps/gamer/src/app/services/product.service';
+import { ProductService } from '@gamer/services';
 
 @Component({
   selector: 'gamer-product-list',

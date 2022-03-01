@@ -4,8 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SearchModule } from '@gamer/search';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CartService } from './services/cart.service';
-import { ProductService } from './services/product.service';
+import { CartService, ProductService } from '@gamer/services';
 
 @NgModule({
   declarations: [AppComponent],

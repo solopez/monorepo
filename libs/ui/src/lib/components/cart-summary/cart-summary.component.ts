@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { CartService } from 'apps/gamer/src/app/services/cart.service';
+import { CartService } from '@gamer/services';
 
 @UntilDestroy()
 @Component({

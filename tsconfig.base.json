@@ -19,7 +19,8 @@
       "@gamer/search": ["libs/search/src/index.ts"],
       "@gamer/product-list": ["libs/product-list/src/index.ts"],
       "@gamer/product-detail": ["libs/product-detail/src/index.ts"],
-      "@gamer/ui": ["libs/ui/src/index.ts"]
+      "@gamer/ui": ["libs/ui/src/index.ts"],
+      "@gamer/services": ["libs/services/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
