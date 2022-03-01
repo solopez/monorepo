@@ -1,6 +1,5 @@
-
-
 # Angular & NestJS web app with NX
+# Cart app
 
 ## Demo
 https://gamer-app-api.herokuapp.com/
