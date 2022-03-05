@@ -1,4 +1,7 @@
-# Angular & NestJS web app with NX
+# Monorepo
+# Angular & NestJS web apps + libraries with NX
+
+
 # Cart app
 
 ## Demo
