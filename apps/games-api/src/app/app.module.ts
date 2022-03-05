@@ -1,0 +1,18 @@
+import { HttpModule, Module } from '@nestjs/common';
+import { ProductController } from '../product/product.controller';
+import { ProductService } from '../product/product.service';
+import { AppController } from './app.controller';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+@Module({
+  imports: [
+    HttpModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'games-app'),
+      exclude: ['/games-api*'],
+    }),
+  ],
+  controllers: [AppController, ProductController],
+  providers: [ProductService],
+})
+export class AppModule {}

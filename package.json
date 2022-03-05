@@ -1,5 +1,5 @@
 {
-  "name": "gamer",
+  "name": "monorepo",
   "version": "1.0.0",
   "license": "MIT",
   "engines": {
@@ -9,8 +9,8 @@
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
-    "start": "node dist/apps/api/main",
-    "serve-all": "ng run gamer:serve-all",
+    "start": "node dist/apps/games-api/main",
+    "serve-all": "ng run games:serve-all",
     "test": "nx run-many --all --target=test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
@@ -29,10 +29,10 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "dev:ssr": "ng run gamer:serve-ssr",
+    "dev:ssr": "ng run games:serve-ssr",
     "serve:ssr": "node dist/apps/server/main.js",
-    "build:ssr": "ng build --configuration production && ng run gamer:server:production",
-    "prerender": "ng run gamer:prerender",
+    "build:ssr": "ng build --configuration production && ng run games:server:production",
+    "prerender": "ng run games:prerender",
     "prebuild:ssr": "ngcc"
   },
   "private": true,

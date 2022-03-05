@@ -26,59 +26,8 @@
       "style": "scss"
     }
   },
-  "defaultProject": "gamer",
+  "defaultProject": "games",
   "projects": {
-    "api": {
-      "root": "apps/api",
-      "sourceRoot": "apps/api/src",
-      "projectType": "application",
-      "prefix": "api",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/api",
-            "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/api/src/environments/environment.ts",
-                  "with": "apps/api/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "api:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
-          "options": {
-            "jestConfig": "apps/api/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "data": {
       "root": "libs/data",
       "sourceRoot": "libs/data/src",
@@ -92,123 +41,24 @@
         }
       }
     },
-    "search": {
-      "projectType": "library",
-      "root": "libs/search",
-      "sourceRoot": "libs/search/src",
-      "prefix": "gamer",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/search/src/**/*.ts",
-              "libs/search/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/search/src/test.ts",
-            "tsConfig": "libs/search/tsconfig.spec.json",
-            "karmaConfig": "libs/search/karma.conf.js",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "apps/gamer/src/assets",
-                "output": "./assets/"
-              }
-            ],
-            "codeCoverage": true
-          }
-        }
-      }
-    },
-    "product-list": {
-      "projectType": "library",
-      "root": "libs/product-list",
-      "sourceRoot": "libs/product-list/src",
-      "prefix": "gamer",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/product-list/src/**/*.ts",
-              "libs/product-list/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/product-list/src/test.ts",
-            "tsConfig": "libs/product-list/tsconfig.spec.json",
-            "karmaConfig": "libs/product-list/karma.conf.js",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "apps/gamer/src/assets",
-                "output": "./assets/"
-              }
-            ],
-            "codeCoverage": true
-          }
-        }
-      }
-    },
-    "product-detail": {
-      "projectType": "library",
-      "root": "libs/product-detail",
-      "sourceRoot": "libs/product-detail/src",
-      "prefix": "gamer",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/product-detail/src/**/*.ts",
-              "libs/product-detail/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/product-detail/src/test.ts",
-            "tsConfig": "libs/product-detail/tsconfig.spec.json",
-            "karmaConfig": "libs/product-detail/karma.conf.js",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "apps/gamer/src/assets",
-                "output": "./assets/"
-              }
-            ],
-            "codeCoverage": true
-          }
-        }
-      }
-    },
-    "gamer": {
+    "games": {
       "projectType": "application",
-      "root": "apps/gamer",
-      "sourceRoot": "apps/gamer/src",
-      "prefix": "gamer",
+      "root": "apps/games",
+      "sourceRoot": "apps/games/src",
+      "prefix": "games",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/gamer-app",
-            "index": "apps/gamer/src/index.html",
-            "main": "apps/gamer/src/main.ts",
-            "polyfills": "apps/gamer/src/polyfills.ts",
-            "tsConfig": "apps/gamer/tsconfig.app.json",
-            "assets": ["apps/gamer/src/favicon.ico", "apps/gamer/src/assets"],
+            "outputPath": "dist/apps/games-app",
+            "index": "apps/games/src/index.html",
+            "main": "apps/games/src/main.ts",
+            "polyfills": "apps/games/src/polyfills.ts",
+            "tsConfig": "apps/games/tsconfig.app.json",
+            "assets": ["apps/games/src/favicon.ico", "apps/games/src/assets"],
             "styles": [
-              "apps/gamer/src/styles.scss",
-              "apps/gamer/src/styles/_variables.scss",
+              "apps/games/src/styles.scss",
+              "apps/games/src/styles/_variables.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [],
@@ -223,8 +73,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/gamer/src/environments/environment.ts",
-                  "with": "apps/gamer/src/environments/environment.prod.ts"
+                  "replace": "apps/games/src/environments/environment.ts",
+                  "with": "apps/games/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -253,40 +103,40 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "gamer:build",
-            "proxyConfig": "apps/gamer/proxy.conf.json"
+            "browserTarget": "games:build",
+            "proxyConfig": "apps/games/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "gamer:build:production"
+              "browserTarget": "games:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gamer:build"
+            "browserTarget": "games:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/gamer/src/**/*.ts",
-              "apps/gamer/src/**/*.html"
+              "apps/games/src/**/*.ts",
+              "apps/games/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "apps/gamer/src/test.ts",
-            "tsConfig": "apps/gamer/tsconfig.spec.json",
-            "karmaConfig": "apps/gamer/karma.conf.js",
+            "main": "apps/games/src/test.ts",
+            "tsConfig": "apps/games/tsconfig.spec.json",
+            "karmaConfig": "apps/games/karma.conf.js",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "apps/gamer/src/assets",
+                "input": "apps/games/src/assets",
                 "output": "./assets/"
               }
             ],
@@ -297,8 +147,8 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/apps/server",
-            "main": "apps/gamer/server.ts",
-            "tsConfig": "apps/gamer/tsconfig.server.json",
+            "main": "apps/games/server.ts",
+            "tsConfig": "apps/games/tsconfig.server.json",
             "externalDependencies": [
               "@nestjs/microservices",
               "@nestjs/microservices/microservices-module",
@@ -314,8 +164,8 @@
               "outputHashing": "media",
               "fileReplacements": [
                 {
-                  "replace": "apps/gamer/src/environments/environment.ts",
-                  "with": "apps/gamer/src/environments/environment.prod.ts"
+                  "replace": "apps/games/src/environments/environment.ts",
+                  "with": "apps/games/src/environments/environment.prod.ts"
                 }
               ],
               "sourceMap": false
@@ -328,10 +178,10 @@
           "options": {
             "commands": [
               {
-                "command": "ng serve api"
+                "command": "ng serve games-api"
               },
               {
-                "command": "ng serve gamer --open"
+                "command": "ng serve games --open"
               }
             ],
             "parallel": true
@@ -340,21 +190,21 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "gamer:build",
-            "serverTarget": "gamer:server"
+            "browserTarget": "games:build",
+            "serverTarget": "games:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "gamer:build:production",
-              "serverTarget": "gamer:server:production"
+              "browserTarget": "games:build:production",
+              "serverTarget": "games:server:production"
             }
           }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "gamer:build:production",
-            "serverTarget": "gamer:server:production",
+            "browserTarget": "games:build:production",
+            "serverTarget": "games:server:production",
             "routes": ["/"]
           },
           "configurations": {
@@ -363,48 +213,201 @@
         }
       }
     },
-    "ui": {
-      "projectType": "library",
-      "root": "libs/ui",
-      "sourceRoot": "libs/ui/src",
-      "prefix": "gamer",
+    "games-api": {
+      "root": "apps/games-api",
+      "sourceRoot": "apps/games-api/src",
+      "projectType": "application",
+      "prefix": "api",
       "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/games-api",
+            "main": "apps/games-api/src/main.ts",
+            "tsConfig": "apps/games-api/tsconfig.app.json",
+            "assets": ["apps/games-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/games-api/src/environments/environment.ts",
+                  "with": "apps/games-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "games-api:build"
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
+            "lintFilePatterns": ["apps/games-api/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui"],
+          "outputs": ["coverage/apps/games-api"],
           "options": {
-            "jestConfig": "libs/ui/jest.config.js",
+            "jestConfig": "apps/games-api/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "services": {
+    "games-feature": {
       "projectType": "library",
-      "root": "libs/services",
-      "sourceRoot": "libs/services/src",
-      "prefix": "gamer",
+      "root": "libs/games/feature",
+      "sourceRoot": "libs/games/feature/src",
+      "prefix": "games",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/services/src/**/*.ts",
-              "libs/services/src/**/*.html"
+              "libs/games/feature/src/**/*.ts",
+              "libs/games/feature/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/services"],
+          "outputs": ["coverage/libs/games/feature"],
           "options": {
-            "jestConfig": "libs/services/jest.config.js",
+            "jestConfig": "libs/games/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "games-home": {
+      "projectType": "library",
+      "root": "libs/games/home",
+      "sourceRoot": "libs/games/home/src",
+      "prefix": "games",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/games/home/src/**/*.ts",
+              "libs/games/home/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/games/home/src/test.ts",
+            "tsConfig": "libs/games/home/tsconfig.spec.json",
+            "karmaConfig": "libs/games/home/karma.conf.js",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/games/src/assets",
+                "output": "./assets/"
+              }
+            ],
+            "codeCoverage": true
+          }
+        }
+      }
+    },
+    "games-product-detail": {
+      "projectType": "library",
+      "root": "libs/games/product-detail",
+      "sourceRoot": "libs/games/product-detail/src",
+      "prefix": "games",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/games/product-detail/src/**/*.ts",
+              "libs/games/product-detail/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/games/product-detail/src/test.ts",
+            "tsConfig": "libs/games/product-detail/tsconfig.spec.json",
+            "karmaConfig": "libs/games/product-detail/karma.conf.js",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/games/src/assets",
+                "output": "./assets/"
+              }
+            ],
+            "codeCoverage": true
+          }
+        }
+      }
+    },
+    "games-product-list": {
+      "projectType": "library",
+      "root": "libs/games/product-list",
+      "sourceRoot": "libs/games/product-list/src",
+      "prefix": "games",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/games/product-list/src/**/*.ts",
+              "libs/games/product-list/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/games/product-list/src/test.ts",
+            "tsConfig": "libs/games/product-list/tsconfig.spec.json",
+            "karmaConfig": "libs/games/product-list/karma.conf.js",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/games/src/assets",
+                "output": "./assets/"
+              }
+            ],
+            "codeCoverage": true
+          }
+        }
+      }
+    },
+    "games-services": {
+      "projectType": "library",
+      "root": "libs/games/services",
+      "sourceRoot": "libs/games/services/src",
+      "prefix": "games",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/games/services/src/**/*.ts",
+              "libs/games/services/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/games/services"],
+          "options": {
+            "jestConfig": "libs/games/services/jest.config.js",
             "passWithNoTests": true
           }
         }

@@ -1,9 +1,14 @@
 {
-  "npmScope": "gamer",
-  "affected": { "defaultBase": "master" },
+  "npmScope": "games",
+  "affected": {
+    "defaultBase": "master"
+  },
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -21,13 +26,29 @@
     }
   },
   "projects": {
-    "api": { "tags": [] },
-    "data": { "tags": [] },
-    "search": { "tags": [] },
-    "product-list": { "tags": [] },
-    "product-detail": { "tags": [] },
-    "gamer": { "tags": [] },
-    "ui": { "tags": [] },
-    "services": { "tags": [] }
+    "data": {
+      "tags": []
+    },
+    "games": {
+      "tags": []
+    },
+    "games-api": {
+      "tags": []
+    },
+    "games-feature": {
+      "tags": []
+    },
+    "games-home": {
+      "tags": []
+    },
+    "games-product-detail": {
+      "tags": []
+    },
+    "games-product-list": {
+      "tags": []
+    },
+    "games-services": {
+      "tags": []
+    }
   }
 }

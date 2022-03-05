@@ -1,0 +1,18 @@
+@import '../../../apps/games/src/styles/variables';
+
+body {
+  height: 100%;
+  font-family: Roboto !important;
+  font-weight: bold !important;
+  background-color: $lime !important;
+  background: linear-gradient(
+    90deg,
+    $stratos 0%,
+    $regent-blue 0%,
+    $electric-lime 40%
+  );
+  a,
+  a:hover {
+    text-decoration: none;
+  }
+}

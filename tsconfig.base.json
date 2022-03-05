@@ -15,12 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@gamer/data": ["libs/data/src/index.ts"],
-      "@gamer/search": ["libs/search/src/index.ts"],
-      "@gamer/product-list": ["libs/product-list/src/index.ts"],
-      "@gamer/product-detail": ["libs/product-detail/src/index.ts"],
-      "@gamer/ui": ["libs/ui/src/index.ts"],
-      "@gamer/services": ["libs/services/src/index.ts"]
+      "@games/data": ["libs/data/src/index.ts"],
+      "@games/feature": ["libs/games/feature/src/index.ts"],
+      "@games/home": ["libs/games/home/src/index.ts"],
+      "@games/product-detail": ["libs/games/product-detail/src/index.ts"],
+      "@games/product-list": ["libs/games/product-list/src/index.ts"],
+      "@games/services": ["libs/games/services/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

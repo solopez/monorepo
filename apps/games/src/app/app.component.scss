@@ -1,0 +1,7 @@
+@import '../../../../apps/games/src/styles/mixins';
+
+.games {
+  @include desktop {
+    padding: 7rem;
+  }
+}
