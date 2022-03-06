@@ -1,11 +1,19 @@
-# Angular & NestJS web app with NX
+# Monorepo
+# Angular & NestJS web apps + libraries with NX
+
+
 # Cart app
 
 ## Demo
 https://gamer-app-api.herokuapp.com/
 
+## Storybook
+https://solopez.github.io/monorepo
+
 ## Local serving
 npm run serve-all (will serve api + web app both)
+
+npm run storybook
 
 ### Serve individually:
 
