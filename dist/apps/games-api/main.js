@@ -4545,7 +4545,7 @@ ProductService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\repos\gamer\apps\games-api\src\main.ts */"./apps/games-api/src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\repos\monorepo\apps\games-api\src\main.ts */"./apps/games-api/src/main.ts");
 
 
 /***/ }),

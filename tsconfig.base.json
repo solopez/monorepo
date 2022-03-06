@@ -20,7 +20,8 @@
       "@games/home": ["libs/games/home/src/index.ts"],
       "@games/product-detail": ["libs/games/product-detail/src/index.ts"],
       "@games/product-list": ["libs/games/product-list/src/index.ts"],
-      "@games/services": ["libs/games/services/src/index.ts"]
+      "@games/services": ["libs/games/services/src/index.ts"],
+      "@ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

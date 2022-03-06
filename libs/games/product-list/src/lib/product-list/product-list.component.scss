@@ -39,10 +39,6 @@
         padding: 0;
       }
     }
-
-    &__button {
-      @include button();
-    }
   }
 
   &__icon {

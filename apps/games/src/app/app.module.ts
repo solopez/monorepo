@@ -12,7 +12,7 @@ import { CartService, ProductService } from '@games/services';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
-    SearchModule,
+    SearchModule
   ],
   providers: [ProductService, CartService],
   bootstrap: [AppComponent],

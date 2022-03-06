@@ -19,14 +19,8 @@
         <span class="product-detail__price">{{
           item.price.amount | currency
         }}</span>
-        <button
-          type="button"
-          (click)="addToCart()"
-          class="btn btn-primary product-detail__button"
-          id="add"
-        >
-          Add to cart
-        </button>
+        <sol-button (clicked)="addToCart()" class="add-gradient" id="add" [title]="'Add to cart'">
+        </sol-button>
       </div>
     </div>
     <div class="row">

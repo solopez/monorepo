@@ -66,10 +66,6 @@
       max-width: initial;
     }
   }
-
-  &__button {
-    @include button();
-  }
 }
 
 .error-container {

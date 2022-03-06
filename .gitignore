@@ -41,3 +41,6 @@ Thumbs.db
 apps/**/coverage
 libs/**/coverage
 /*.env
+/storybook
+/storybook-static
+/out**/
