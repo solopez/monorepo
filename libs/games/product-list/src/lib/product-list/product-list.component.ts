@@ -17,23 +17,28 @@ export class ProductListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((param) => {
-      if (param && param.search) {
-        this.getProducts(param.search);
-      } else {
-        this.router.navigate(['']);
-      }
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.getProducts(params?.search);
     });
   }
 
-  getProducts(query) {
+  getProducts(query = ''): void {
     this.productService.getProducts(query).subscribe(
       (data) => {
         this.items = data.items;
       },
-      () => {
+      (error) => {
+        console.error('Error fetching products:', error);
         this.router.navigate(['']);
       }
     );
+  }
+
+  installGame(item: any) {
+    item.isInstalling = true;
+
+    setTimeout(() => {
+      item.isInstalling = false;
+    }, 3000);
   }
 }

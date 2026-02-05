@@ -1,33 +1,34 @@
 <games-cart [inCart]="inCart" (toggle)="handleToggle()"></games-cart>
-<div class="cart__details" *ngIf="toggleCart">
-  <i
-    class="fa-solid fa-xmark fa-2xl cart__details__icon"
-    (click)="toggleCart = !toggleCart"
-  ></i>
-  <h3>Cart</h3>
-  <h5 *ngIf="!inCart?.length" class="py-2 mt-4">Empty!</h5>
-  <div class="py-2 mt-4" *ngFor="let item of inCart">
-    <div class="row">
-      <div class="col-md-4">
-        <span class="mr-2">{{ item.title }} </span>
-      </div>
-      <div class="col-md-1">
-        <span class="mr-2">{{ item.quantity }} </span>
-      </div>
-      <div class="col-md-3">
-        <span class="mr-2">{{ item.price.calculatedPrice | currency }} </span>
-      </div>
-      <div class="col-md-4 cart__details__actions">
-        <i
-          (click)="add(item)"
-          class="fa-solid fa-circle-plus fa-xl mx-2"
-          role="button"
-        ></i>
-        <i
-          (click)="remove(item)"
-          class="fa-solid fa-circle-minus fa-xl mx-2"
-          role="button"
-        ></i>
+
+
+<div [ngClass]="{'cart__details': true, 'open': toggleCart}" class="cart__details">
+  <div class="cart__overlay" (click)="toggleCart = !toggleCart"></div> 
+
+  <div class="cart__modal">
+    
+    <i
+      class="fa-solid fa-xmark fa-2xl cart__details__icon"
+      (click)="toggleCart = !toggleCart"
+    ></i>
+    <h3 class="cart__details__title">Cart</h3>
+    
+    <h5 *ngIf="!inCart?.length" class="cart__details__empty py-2 mt-4">Empty!</h5>
+    
+    
+    <div class="cart__details__items py-2 mt-4" *ngFor="let item of inCart">
+      <div class="cart__item">
+        <div class="cart__item__info">
+          <span class="cart__item__title">{{ item.title }}</span>
+          <span class="cart__item__quantity">{{ item.quantity }} x</span>
+          <span class="cart__item__price">{{ item.price.calculatedPrice | currency }}</span>
+        </div>
+        <div class="cart__item__actions">
+          
+          <div class="cart__item__action-buttons">
+            <i (click)="add(item)" class="fa-solid fa-circle-plus fa-xl cart__item__action" role="button"></i>
+            <i (click)="remove(item)" class="fa-solid fa-circle-minus fa-xl cart__item__action" role="button"></i>
+          </div>
+        </div>
       </div>
     </div>
   </div>

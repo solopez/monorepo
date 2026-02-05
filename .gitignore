@@ -44,3 +44,4 @@ libs/**/coverage
 /storybook
 /storybook-static
 /out**/
+/dist

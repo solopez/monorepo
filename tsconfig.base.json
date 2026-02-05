@@ -8,7 +8,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "ES2020",
+    "outDir": "./dist",
     "module": "esnext",
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
@@ -21,7 +22,8 @@
       "@games/product-detail": ["libs/games/product-detail/src/index.ts"],
       "@games/product-list": ["libs/games/product-list/src/index.ts"],
       "@games/services": ["libs/games/services/src/index.ts"],
-      "@ui": ["libs/ui/src/index.ts"]
+      "@ui": ["libs/ui/src/index.ts"],
+      "@games-environment": ["apps/games/src/environments/environment"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
   api: {
-    games: 'https://gamer-app-api.herokuapp.com/games-api',
+    games: 'http://localhost:3333',
   },
 };

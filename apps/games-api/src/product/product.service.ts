@@ -1,25 +1,21 @@
-import { Item, ItemDetail, Items } from '@games/data';
-import { HttpService, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import { ItemDetail, Items } from '@games/data'; 
 import { GAMES } from './games.constant';
 
 @Injectable()
 export class ProductService {
-  games: Items = GAMES;
-  constructor(private httpService: HttpService) {}
-
-  async getProducts(query): Promise<Items> {
-    const filteredGames = this.games.items.filter((item) =>
-      item.title.toLowerCase().includes(query.toLowerCase())
-    );
-    return { items: filteredGames };
+  getProducts(search?: string): Promise<Items> {
+    if (search && search.trim()) {
+      const filteredItems = GAMES.items.filter(item =>
+        item.title.toLowerCase().includes(search.toLowerCase())
+      );
+      return Promise.resolve({ items: filteredItems });
+    }
+    return Promise.resolve({ items: GAMES.items });
   }
 
-  async getProduct(id): Promise<ItemDetail> {
-    const game = this.games.items.find((item) => item.id == id);
-    return { item: game };
-  }
-
-  getAmount(max: number, min: number) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+  getProduct(id: string): Promise<ItemDetail> {
+    const item = GAMES.items.find(item => item.id === Number(id));
+    return Promise.resolve({ item });
   }
 }

@@ -1,28 +1,35 @@
 <div class="row no-gutters product-detail">
   <div *ngIf="item" class="col-md-10 product-detail__wrapper">
     <div class="row">
+      
       <div class="col-md-8 text-center text-md-left">
-        <img
-          src="{{ item.thumbnail }}"
-          class="product-detail__image"
-          alt="product picture"
-        />
-      </div>
-      <div class="col-md-4">
-        <div class="product-detail__condition">
-          <span>{{ conditions[item.condition] }} </span>
-          <span *ngIf="item.sold_quantity"
-            >- {{ item.sold_quantity }} vendidos</span
-          >
+        <div class="product-detail__image__wrapper">
+          <img
+            src="{{ item.thumbnail }}"
+            class="product-detail__image"
+            alt="product picture"
+          />
         </div>
+      </div>
+      
+      
+      <div class="col-md-4 product-detail__info">
+        
+        <div class="product-detail__condition">
+          <span>{{ conditions[item.condition] }}</span>
+          <span *ngIf="item.sold_quantity">- {{ item.sold_quantity }} vendidos</span>
+        </div>
+        
         <h1 class="product-detail__title">{{ item.title }}</h1>
-        <span class="product-detail__price">{{
-          item.price.amount | currency
-        }}</span>
-        <sol-button (clicked)="addToCart()" class="add-gradient" id="add" [title]="'Add to cart'">
-        </sol-button>
+        
+        <span class="product-detail__price">{{ item.price.amount | currency }}</span>
+        
+        
+<button class="btn-add-to-cart" (click)="addToCart()">Agregar al carrito</button>
       </div>
     </div>
+    
+    
     <div class="row">
       <div class="col-md-12 product-detail__description">
         <p class="product-detail__description__content">
@@ -30,8 +37,22 @@
         </p>
       </div>
     </div>
+    
+    
+    <div class="row product-detail__additional-info">
+      <div class="col-md-6">
+        <p><strong>Género:</strong> {{ item.genre }}</p>
+        <p><strong>Plataforma:</strong> {{ item.platform }}</p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Desarrollador:</strong> {{ item.developer }}</p>
+        <p><strong>Fecha de lanzamiento:</strong> {{ item.release_date | date:'longDate' }}</p>
+      </div>
+    </div>
   </div>
 </div>
+
+
 <div *ngIf="error" class="row p-3 error-container">
   <div class="col-md-10 error-container__alert alert alert-danger" role="alert">
     {{ error }}

@@ -1,51 +1,211 @@
-@import '../../../../../../../apps/games/src/styles/_variables';
-@import '../../../../../../../apps/games/src/styles/mixins';
 
-.cart {
-  &__details {
-    z-index: 10;
-    background: white;
-    padding: 2rem;
-    min-height: 100%;
-    right: 0;
-    top: 0;
-    overflow-y: auto;
-    position: fixed;
-    left: 0;
-    right: 0;
+.cart__details {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(92, 88, 106, 0.6));
+  padding: 20px;
+  box-shadow: -10px 0 15px rgba(0, 0, 0, 0.5);
+  opacity: 0; 
+  transform: translateX(100%); 
+  transition: transform 0.4s ease, opacity 0.4s ease; 
+  
+}
 
-    &__icon {
-      cursor: pointer;
-      right: 20px;
-      position: absolute;
-      top: 23px;
-    }
 
-    &__actions {
-      bottom: 40px;
-      justify-content: flex-end;
-      display: flex;
-      align-items: center;
-      @include desktop {
-        justify-content: center;
-        bottom: inherit;
-      }
-    }
+.cart__details.open {
+  opacity: 1;
+  transform: translateX(0); 
+}
 
-    @include desktop {
-      position: absolute;
-      z-index: 10;
-      background: white;
-      padding: 2rem;
-      width: 35rem;
-      min-height: 24rem;
-      border-radius: 4px;
-      box-shadow: 1px 1px 30px white;
-      right: 0;
-      left: inherit;
-      top: 21rem;
-      max-height: 23rem;
-      overflow-y: auto;
-    }
+
+.cart__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+}
+
+
+.cart__modal {
+  background: transparent;
+  color: #fff;
+  overflow-y: auto;
+  height: 100%;
+  position: relative;
+}
+
+
+.cart__details__icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+  color: #e5e7eb;
+  transition: transform 0.2s ease;
+}
+
+.cart__details__icon:hover {
+  transform: scale(1.1);
+}
+
+
+.cart__details__title {
+  font-size: 2.5rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.cart__details__empty {
+  text-align: center;
+  color: #fefefe;
+  font-size: 1.2rem;
+}
+
+
+.cart__details__items {
+  margin-top: 20px;
+  max-height: 70%;
+  overflow: hidden;
+}
+
+.cart__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #222;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(22, 12, 54, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cart__item:hover {
+  background: #333;
+  transform: scale(1.02);
+}
+
+.cart__item__info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #e5e7eb;
+  flex-grow: 1;
+}
+
+.cart__item__title {
+  font-weight: bold;
+  width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart__item__quantity,
+.cart__item__price {
+  color: #ffffff;
+}
+.cart__item__actions {
+  margin-left: 15px;
+}
+.cart__item__action-buttons {
+  display: flex;
+  gap: 10px; 
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.cart__item__action {
+  cursor: pointer;
+  color: #4158ab;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.cart__item__action:hover {
+  color: #4158ab;
+  transform: scale(1.1);
+
+}
+
+
+
+@media (max-width: 768px) {
+  .cart__details {
+    width: 100%; 
+    padding: 10px;
+  }
+
+  
+  .cart__details__title {
+    font-size: 1.8rem;
+  }
+
+  
+  .cart__details__icon {
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem; 
+  }
+
+  .cart__details.open {
+  z-index: 1000; 
+}
+
+  
+  .cart__item {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+
+  .cart__item__info {
+    width: 100%; 
+    flex-direction: column; 
+  }
+
+  .cart__item__title {
+    max-width: 100%; 
+    font-size: 1rem;
+  }
+
+  .cart__item__quantity, .cart__item__price {
+    font-size: 1rem;
+  }
+
+  
+  .cart__item__action-buttons {
+    gap: 8px;
+    margin-top: 10px; 
+  }
+
+  .cart__item__action {
+    font-size: 1.2rem; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  .cart__details__title {
+    font-size: 1.5rem; 
+  }
+
+  .cart__item__title {
+    font-size: 0.9rem; 
+    max-width: 100%; 
+  }
+
+  .cart__item__info {
+    font-size: 0.9rem; 
   }
 }

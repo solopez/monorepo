@@ -1,39 +1,28 @@
-<div class="row no-gutters product-list" *ngIf="items">
-  <div class="col-md-10 product-list__wrapper">
-    <ng-container *ngFor="let item of items">
-      <a [routerLink]="['/items/' + item.id]" id="product-{{ item.id }}">
-        <div class="row no-gutters product-list__wrapper__item">
-          <div class="col-md-9 d-md-inline-flex">
-            <div class="product-list__image__wrapper">
-              <img
-                class="product-list__image"
-                src="{{ item.thumbnail }}"
-                alt="product items"
-              />
-            </div>
-            <div class="product-list__content">
-              <span class="product-list__content__price d-inline-block">{{
-                item.price.amount | currency
-              }}</span>
-              <span class="product-list__content__icon">
-                <i class="fa-solid fa-truck-fast"></i>
-                <i class="fa-solid fa-cart-plus"></i>
-              </span>
-              <div>
-                <span class="product-list__content__title">{{
-                  item.title
-                }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr class="product-list__line" />
-      </a>
-    </ng-container>
+<div class="container product-grid" *ngIf="items?.length">
+  <div class="game-card" *ngFor="let item of items">
+    
+
+    <div class="game-card__image">
+      <img [src]="item.thumbnail" [alt]="item.title"/>
+      <div class="game-card__overlay">
+        <button class="btn-install" (click)="installGame(item)">
+          <i class="fa-solid fa-download"></i> 
+          {{ item.isInstalling ? 'Instalando...' : 'Instalar' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="game-card__info"  [routerLink]="['/items/' + item.id]">
+      <h3>{{ item.title }}</h3>
+
+      <div class="game-card__meta">
+        <span class="price">{{ item.price.amount | currency }}</span>
+        <span class="badge">Online</span>
+      </div>
+    </div>
   </div>
 </div>
-<div class="container" *ngIf="!items?.length">
-  <div class="text-center">
-    <h3>Try another one!</h3>
-  </div>
+
+<div class="text-center" *ngIf="!items?.length">
+  <h3>🎮 No games found. Try another search!</h3>
 </div>

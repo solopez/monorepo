@@ -1,28 +1,29 @@
 <div [formGroup]="form" class="search">
-  <h1 class="search__title py-5 my-5">Play!</h1>
-  <div class="search__actions">
-    <i
-      class="fa-brands fa-d-and-d search__icon"
-      title="Home"
-      [routerLink]="['/']"
-      id="home"
-      aria-label="home"
-    ></i>
-    <games-cart-summary></games-cart-summary>
+  
+  <div class="search__header">
+    <h1 class="search__title">Games</h1>
+    <div class="search__actions">
+      
+      <span></span>
+      
+      <games-cart-summary></games-cart-summary>
+    </div>
   </div>
-  <div class="row no-gutters">
-    <div class="mb-4 col-md-10 search__wrapper">
-      <div class="input-group">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enter a game"
-          aria-label="search"
-          formControlName="search"
-          aria-describedby="search"
-          (keydown.enter)="search()"
-        />
-      </div>
+
+  
+  <div class="search__content">
+    <div class="search__input">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search for a game..."
+        aria-label="search"
+        formControlName="search"
+        aria-describedby="search"
+        (keydown.enter)="search()"
+      />
+      
+      <button class="search__button" (click)="search()">Search</button>
     </div>
   </div>
 </div>

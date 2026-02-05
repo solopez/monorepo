@@ -14,7 +14,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import('@games/product-list').then((m) => m.GamesProductListModule),
   },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: 'items' },
 ];
 
 @NgModule({

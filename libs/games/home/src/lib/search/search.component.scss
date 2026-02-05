@@ -1,72 +1,92 @@
-@import '../../../../../../apps/games/src/styles/_variables';
-@import '../../../../../../apps/games/src/styles/_mixins';
-@import url('https://fonts.googleapis.com/css?family=Monoton');
-
 .search {
-  padding: 1rem;
-
-  @include desktop {
-    padding: 0.5rem 0;
-  }
-
-  &__actions {
-    display: flex;
-    justify-content: center;
-    padding: 1.5rem;
-    margin: 0 5.5rem;
-
-    @include desktop {
-      justify-content: space-between;
-    }
-  }
-
-  &__title {
-    font-family: 'Monoton', Helvetica, sans-serif;
-    text-align: center;
-    font-size: 15vw;
-    text-transform: uppercase;
-
-    @media (min-width: 700px) {
-      font-size: 9vw;
-    }
-
-    @media (min-width: 1400px) {
-      font-size: 150px;
-    }
-  }
-
-  &__image {
-    margin-right: 1.5rem;
-    width: 4rem;
-  }
-
-  &__wrapper {
-    display: flex;
-    margin: 0 auto;
-  }
-
-  &__icon {
-    font-size: 70px;
-    margin-right: 15px;
-    cursor: pointer;
-  }
-}
-.products {
-  &__breadcrumb {
-    margin: 0 auto;
-
-    &__content {
-      font-size: 14px;
-      color: $dusty-gray;
-      margin: 1rem;
-
-      @include desktop {
-        margin: 1rem 0;
-      }
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  padding: 40px 20px;
 }
 
-.input-group > input {
-  height: 4rem;
+.search__header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.search__title {
+  font-size: 3rem;
+  color: #e5e7eb;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: "Bungee";
+
+}
+
+.search__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.search__icon {
+  color: #e5e7eb;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.search__icon:hover {
+  transform: scale(1.1);
+}
+
+.search__content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.search__input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  max-width: 600px;
+}
+
+.search__input input {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1.2rem;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  color: #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.search__input input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+}
+
+.search__button {
+  margin-left: 20px;
+  right: 10px;
+  padding: 12px 20px;
+  background-color: #4158ab;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.search__button:hover {
+  background-color: #334484;
+}
+
+.search__button:active {
+  transform: scale(0.98);
 }
